@@ -1,0 +1,1 @@
+This is a slack bot that serves random interview question for practice by users
