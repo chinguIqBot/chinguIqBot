@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/', (req, res) => {
   var text = req.body.text;
   // implement your bot here ...
+  console.log(text);
   res.send("hello");
 });
 
