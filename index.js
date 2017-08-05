@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const sa = require('superagent');
 const bodyParser = require('body-parser');
 
 let apikey = process.env.API_KEY; //Slack API Key
@@ -28,10 +29,19 @@ app.post('/', (req, res) => {
         return;
     }
     //Send OK to slack to be able to send deferred answers later
-    res.end(200);
+    res.end();
 
     //Commands
     if (command === "help") {
+        var body = {
+            response_type: "ephemeral",
+            "text": `
+            [WIP] List of available commands `
+        };
+        sa.post(payload.response_url)
+            .send(body)
+            .set('content-type', 'application/json')
+            .end();
 
     } else if (command.startsWith("topic")) {
 
@@ -40,7 +50,14 @@ app.post('/', (req, res) => {
     } else if (command === "challenge") {
         
     } else {
-
+        var body = {
+            response_type: "ephemeral",
+            "text": "Wrong command, please type /chinguiqbot help"
+        };
+        sa.post(payload.response_url)
+            .send(body)
+            .set('content-type', 'application/json')
+            .end();
     }
     
     var body = {

@@ -19,9 +19,10 @@
   "homepage": "https://github.com/chinguIqBot/chinguIqBot#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "superagent": "^3.5.2"
   },
-  "engines" :{
-    "node" : "v4.7.3"
+  "engines": {
+    "node": "v4.7.3"
   }
 }
